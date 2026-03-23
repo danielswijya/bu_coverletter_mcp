@@ -29,13 +29,13 @@ CHECKLIST = [
 
 @mcp.tool()
 def generate_cover_letter(
+    # Required — no defaults
     job_description: str,
     company_name: str,
     your_name: str,
     contact_info: str,
-    resume_text: str = "",
 
-    # ENUM 1 — Recipient — NO DEFAULT, must ask user
+    # ENUM 1 — Recipient — no default, must ask user
     recipient_type: Literal[
         "Hiring Manager",
         "Recruiter",
@@ -43,19 +43,21 @@ def generate_cover_letter(
         "Skip — default to Hiring Manager"
     ],
 
-    # ENUM 1b — Salutation — NO DEFAULT
+    # ENUM 1b — Salutation — no default
     recipient_salutation: Literal[
         "Mr.",
         "Ms.",
         "Skip — use full name, gender neutral"
     ],
 
-    # ENUM 2 — Location — NO DEFAULT
+    # ENUM 2 — Location — no default
     location_type: Literal[
         "I know the location — ask me for it",
         "Skip — leave blank"
     ],
 
+    # Optional — have defaults, must come last
+    resume_text: str = "",
     recipient_name: str = "",
     company_address: str = "",
 
